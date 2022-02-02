@@ -37,10 +37,10 @@ const Home = () => {
 
 
   let myLotCard = (lot) => {
-    return <div class="card">
+    return <div class="card  bg-secondary text-white">
     <img class="card-img-top" src="" alt="Card image cap" ></img>
     <div class="card-body">
-      <h5 class="card-title"> {lot.productName}</h5>
+      <h5 class="card-title text-info"> {lot.productName}</h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       <div class="d-flex align-items-stretch">
         <p>Available Amount: {lot.initAmount} Kg</p>
@@ -56,7 +56,7 @@ const Home = () => {
       </div>
      
       <input type="text" onChange={handleAmountChange}></input>
-      <a onClick={()=>placeOrder(lot.id)} class="btn btn-primary">Buy</a>
+      <a onClick={()=>placeOrder(lot.id)} class="btn btn-success">Buy</a>
     </div>
   </div>
   }
@@ -72,8 +72,17 @@ const Home = () => {
                 <div class="col-lg-10">
                   {lots.map((lot, key)  => myLotCard(lot))}
                 </div>
+
                 <div class="col-lg-2">
-                  <h5>Category<br/> </h5>
+                  <h2>Category </h2>
+
+                  <ul class="list-group">
+                  <li class="list-group-item disabled">Cras justo odio</li>
+                  <li class="list-group-item">Dapibus ac facilisis in</li>
+                  <li class="list-group-item">Morbi leo risus</li>
+                  <li class="list-group-item">Porta ac consectetur ac</li>
+                  <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
                   
                   
 
@@ -85,7 +94,17 @@ const Home = () => {
                     CARD HERE
                 </div> */}
             </div>
+
+            <div>
+           <footer class="page-footer font-small blue mt-1">
+            <div class="footer-copyright text-center py-3">© 2020 Copyright:
+              <a href="https://farmx.ee/"> farmx.ee</a>
+            </div>
+            </footer>
         </div>
+        </div>
+
+        
   );
 };
 
