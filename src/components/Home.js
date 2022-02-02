@@ -38,16 +38,23 @@ const Home = () => {
 
   let myLotCard = (lot) => {
     return <div class="card">
-    <img class="card-img-top" src="" alt="Card image cap"></img>
+    <img class="card-img-top" src="" alt="Card image cap" ></img>
     <div class="card-body">
       <h5 class="card-title"> {lot.productName}</h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       <div class="d-flex align-items-stretch">
-        <p>Available amount: {lot.initAmount}</p>
-        <p>opening price: {lot.openingPrice}</p>
-        <p>closing price: {lot.closingPrice}</p>
-        <p>closing date: {lot.closclosingDateingPrice}</p>
+        <p>Available Amount: {lot.initAmount} Kg</p>
       </div>
+      <div class="d-flex align-items-stretch">
+        <p>Opening Price: {lot.openingPrice}$</p>
+      </div>
+      <div class="d-flex align-items-stretch">
+        <p>Closing Price: {lot.closingPrice}$</p>
+      </div>
+      <div class="d-flex align-items-stretch">
+        <p>Closing Date: {lot.closingDate}</p>
+      </div>
+     
       <input type="text" onChange={handleAmountChange}></input>
       <a onClick={()=>placeOrder(lot.id)} class="btn btn-primary">Buy</a>
     </div>
@@ -59,11 +66,17 @@ const Home = () => {
   return (
         <div class="container">
             <header className="jumbotron">
-                <h2>Available lots</h2>
+                <h2>Available lots2</h2>
             </header> 
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-10">
                   {lots.map((lot, key)  => myLotCard(lot))}
+                </div>
+                <div class="col-lg-2">
+                  <h5>Category<br/> </h5>
+                  
+                  
+
                 </div>
                 {/* <div class="col-lg-4 d-flex align-items-stretch">
                     CARD HERE
