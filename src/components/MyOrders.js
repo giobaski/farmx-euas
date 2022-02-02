@@ -26,7 +26,8 @@ const MyOrders = () => {
   return (
     <div className="container">
       <header className="jumbotron">
-        {/* <h3>{myOrders.length}</h3> */}
+        {/* <h3>{myOrders.length}</h3>
+        {console.log(myOrders)} */}
       </header>
       <h2>List of orders</h2>
 

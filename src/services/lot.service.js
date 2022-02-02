@@ -17,7 +17,7 @@ const placeOrder = (lotId, amount) => {
 
 
 const fetchOrdersByUsername = () => {
-  return axios.get(API_URL + `orders/${user}`,{}, { headers: authHeader()});
+  return axios.get(API_URL + `orders/${user.username}`,{}, { headers: authHeader()});
 }
 
 
