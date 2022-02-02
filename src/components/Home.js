@@ -4,6 +4,19 @@ import LotService from "../services/lot.service";
 
 const Home = () => {
   const [lots, setLots] = useState([]);
+  const [amount, setAmount] = useState(0);
+
+
+  const handleAmountChange = (val) =>{
+    setAmount(val.target.value);
+    console.log(val.target.value);
+  }
+
+  const placeOrder = (lotId) =>{
+    LotService.placeOrder(lotId, amount)
+    console.log(lotId);
+  }
+  
 
   useEffect(() => {
     LotService.fetchAlllots().then(
@@ -22,7 +35,8 @@ const Home = () => {
     );
   }, []);
 
-  let lotCards = (lot) => {
+
+  let myLotCard = (lot) => {
     return <div class="card">
     <img class="card-img-top" src="" alt="Card image cap"></img>
     <div class="card-body">
@@ -34,8 +48,8 @@ const Home = () => {
         <p>closing price: {lot.closingPrice}</p>
         <p>closing date: {lot.closclosingDateingPrice}</p>
       </div>
-      <input></input>
-      <a href="#" class="btn btn-primary">Buy</a>
+      <input type="text" onChange={handleAmountChange}></input>
+      <a onClick={()=>placeOrder(lot.id)} class="btn btn-primary">Buy</a>
     </div>
   </div>
   }
@@ -49,7 +63,7 @@ const Home = () => {
             </header> 
             <div class="row">
                 <div class="col-lg-6">
-                {lots.map((lot, key) => lotCards(lot))}
+                  {lots.map((lot, key)  => myLotCard(lot))}
                 </div>
                 {/* <div class="col-lg-4 d-flex align-items-stretch">
                     CARD HERE
