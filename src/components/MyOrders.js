@@ -26,8 +26,25 @@ const MyOrders = () => {
   return (
     <div className="container">
       <header className="jumbotron">
-        <h3>{myOrders.length}</h3>
+        {/* <h3>{myOrders.length}</h3> */}
       </header>
+      <h2>List of orders</h2>
+
+      <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Nuts
+            <span class="badge badge-primary badge-pill bg-danger">50 KG</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Strawberry
+            <span class="badge badge-primary badge-pill bg-danger">10 KG</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Blackberry
+            <span class="badge badge-primary badge-pill bg-danger">99 KG</span>
+          </li>
+      </ul>
+
     </div>
   );
 };

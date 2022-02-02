@@ -5,6 +5,8 @@ import LotService from "../services/lot.service";
 const Home = () => {
   const [lots, setLots] = useState([]);
   const [amount, setAmount] = useState(0);
+  const [orderPlaced, setOrderPlaced] = useState(false);
+
 
 
   const handleAmountChange = (val) =>{
@@ -14,6 +16,7 @@ const Home = () => {
 
   const placeOrder = (lotId) =>{
     LotService.placeOrder(lotId, amount)
+    setOrderPlaced(true);
     console.log(lotId);
   }
   
@@ -38,7 +41,7 @@ const Home = () => {
 
   let myLotCard = (lot) => {
     return <div class="card  bg-secondary text-white">
-    <img class="card-img-top" src="" alt="Card image cap" ></img>
+    {/* <img class="card-img-top" src="" alt="Card image cap" ></img> */}
     <div class="card-body">
       <h5 class="card-title text-info"> {lot.productName}</h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -55,8 +58,9 @@ const Home = () => {
         <p>Closing Date: {lot.closingDate}</p>
       </div>
      
-      <input type="text" onChange={handleAmountChange}></input>
-      <a onClick={()=>placeOrder(lot.id)} class="btn btn-success">Buy</a>
+       <input type="text" onChange={handleAmountChange} placeholder="type amount (KG)"></input>
+          
+      <a onClick={()=>placeOrder(lot.id)} class="btn btn-success m-lg-2">Buy</a>
     </div>
   </div>
   }
@@ -66,11 +70,27 @@ const Home = () => {
   return (
         <div class="container">
             <header className="jumbotron">
-                <h2>Available lots2</h2>
+                <h2>Available lots</h2>
+                {
+                orderPlaced?
+                <div class="alert alert-success">
+                <strong>Success!</strong> Your order has been placed
+               </div> 
+                : null
+                }
+
             </header> 
             <div class="row">
                 <div class="col-lg-10">
                   {lots.map((lot, key)  => myLotCard(lot))}
+
+                  <ul class="pagination pagination-lg">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                  </ul>
                 </div>
 
                 <div class="col-lg-2">
