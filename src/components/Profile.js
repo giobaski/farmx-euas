@@ -10,16 +10,33 @@ const Profile = () => {
   }
 
   return (
-    <div className="container">
-      <header className="jumbotron">
-        <h3>
-          <strong>{currentUser.username}</strong> Profile
+  
+    <div class="container w-25">
+      <div class="card bg-secondary">
+        <img class="float-left" src="https://i.postimg.cc/TwZLrKNN/user-profile-icon-23.png" ></img>
+  </div>
+
+  
+  
+       <h3>
+        <button type="button" class="btn btn-primary">
+          <strong>{currentUser.username}</strong> 
+          </button>
         </h3>
-      </header>
-      <p>
-        <strong>Token:</strong> {currentUser.accessToken.substring(0, 20)} ...{" "}
+      
+  
+    <p class="font-weight-bold">Profile</p>
+
+    <h3>
+   
+    <button type="button" class="btn btn-primary text-center">
+
+   <strong>Token:</strong> {currentUser.accessToken.substring(0, 20)} ...{" "}
         {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
-      </p>
+       
+
+      
+      
       <p>
         <strong>Id:</strong> {currentUser.id}
       </p>
@@ -31,7 +48,13 @@ const Profile = () => {
         {currentUser.roles &&
           currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
       </ul>
-    </div>
+      </button>
+        </h3>
+    
+  </div>
+
+
+    
   );
 };
 
