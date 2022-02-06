@@ -42,9 +42,10 @@ const Home = () => {
   
   
   let myLotCard = (lot) => {
-    return <div class="card bg-secondary text-white">
+    return <div class="card bg-secondary text-white ">
     { }
-    <div class="card-body">
+    
+    <div class="card-body fw-bold">
       <h5 class="card-title text-info"> {lot.productName}</h5>
     
       <div class="d-flex align-items-stretch">
@@ -63,7 +64,7 @@ const Home = () => {
        <input type="text" onChange={handleAmountChange} placeholder="type amount (KG)"></input>
           
       <a onClick={()=>placeOrder(lot.id)} class="btn btn-success m-lg-2">Buy</a>
-      
+     
     </div>
   </div>
   }
@@ -71,7 +72,10 @@ const Home = () => {
   
 
   return (
-        <div class="container">
+          <div class="p-3 mb-2" >
+            
+            
+          <div class="container">
             <header className="jumbotron">
                 <h2>Available lots</h2>
                 {
@@ -82,22 +86,22 @@ const Home = () => {
                 : null
                 }
 
+
            
             </header> 
             <div class="row">
                 <div class="col-lg-10">
+                
                   {lots.map((lot, key)  => myLotCard(lot))}
 
                   <ul class="pagination pagination-lg">
                     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                     <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
                     <li class="page-item"><a class="page-link" href="#">Next</a></li>
                   </ul>
                 </div>
 
-                <div class="col-lg-2">
+                <div class="col-lg-2 text-center text-dark">
                   <h2>Category </h2>
 
                   <ul class="list-group">
@@ -121,13 +125,14 @@ const Home = () => {
 
             <div>
            <footer class="page-footer font-small blue mt-1">
-            <div class="footer-copyright text-center py-3">© 2022 Copyright:
+            <div class="footer-copyright text-center py-3 " >© 2022 Copyright:
               <a href="https://farmx.ee/"> farmx.ee</a>
             </div>
             </footer>
         </div>
         </div>
-     
+        </div>
+    
 
         
   );
